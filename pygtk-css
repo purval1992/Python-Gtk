@@ -1,0 +1,68 @@
+		### Add css for Designing window. ###
+		## import this code into your pygtk source code for apply CSS effects
+		css = """
+GtkDialog {
+	color : #000000;
+	background-color: #D8D8D8;
+}
+GtkEntry {
+	border-color: #A4A4A4;
+	color: #424242;
+	border-radius: 10px;
+	font: Comic Sans 10;
+	background: rgba(255, 255, 255, 0.5);
+}
+GtkLayout {
+	background-color: transparent;
+	
+}
+
+GtkViewport {
+	background-color: transparent;
+}
+#QuitButton:hover {
+	border: 1px solid #d92626;
+        background: rgba(217, 38, 38, 0.5);	
+}
+GtkTreeView
+{
+	border-radius: 0px;
+	font: Comic Sans 10;
+}
+GtkMenu {
+	border-radius: 10px;
+}
+GtkLabel {
+	font: Comic Sans 10;
+}
+GtkMenuItem {
+	color: #000000;
+	border-radius: 10px;
+}
+GtkEntry:focus{
+	outline: none;
+    border-color: #6E6E6E;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+	border: 1px solid #703910;
+}
+GtkButton{
+    color: #000;											# button Color
+    border: 10px;											# hide border of button
+    font: Comic Sans 8;    									# font style
+    border-radius: 20%;                  					# make round shaped button
+    box-shadow: inset 0 0 7px 4px rgba(255,255,255,.5);     # create shadowed button
+}
+
+GtkButton:hover {
+	border: 1px solid #4ddbff;
+        background: rgba(77, 219, 255, 0.5);
+}
+"""
+		### Create Constructor for apply css effect on window. ####
+		css_provider = Gtk.CssProvider()
+		css_provider.load_from_data(css)
+		
+		context = Gtk.StyleContext()
+		context.add_provider_for_screen(self.screen, css_provider,
+		Gtk.STYLE_PROVIDER_PRIORITY_USER)
